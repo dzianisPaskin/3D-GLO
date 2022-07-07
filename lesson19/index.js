@@ -34,7 +34,29 @@ switch (day) {
 }
 
 if (hours <= 6) {
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  if (hours < 10) hours = "0" + hours;
+  if (minute < 10) minute = "0" + minute;
+  if (seconds < 10) seconds = "0" + seconds;
+  div.innerHTML = `
+    <strong>Добрый день</strong><br>Сегодня: ${dayOfWeek}<br>
+    Текущее время: ${hours}:${minute}:${seconds} P.M.<br>
+    До нового года осталось: ${daysLeft} дней
+    `;
+  document.body.append(div);
 } else if (hours <= 12) {
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  if (hours < 10) hours = "0" + hours;
+  if (minute < 10) minute = "0" + minute;
+  if (seconds < 10) seconds = "0" + seconds;
+  div.innerHTML = `
+    <strong>Добрый день</strong><br>Сегодня: ${dayOfWeek}<br>
+    Текущее время: ${hours}:${minute}:${seconds} P.M.<br>
+    До нового года осталось: ${daysLeft} дней
+    `;
+  document.body.append(div);
 } else if (hours <= 18) {
   hours = hours % 12;
   hours = hours ? hours : 12;
@@ -48,4 +70,15 @@ if (hours <= 6) {
     `;
   document.body.append(div);
 } else if (hours <= 24) {
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  if (hours < 10) hours = "0" + hours;
+  if (minute < 10) minute = "0" + minute;
+  if (seconds < 10) seconds = "0" + seconds;
+  div.innerHTML = `
+    <strong>Добрый день</strong><br>Сегодня: ${dayOfWeek}<br>
+    Текущее время: ${hours}:${minute}:${seconds} P.M.<br>
+    До нового года осталось: ${daysLeft} дней
+    `;
+  document.body.append(div);
 }
