@@ -8,6 +8,7 @@ const updateDebounceText = debounce((text) =>{
 
 input.addEventListener('input', e => {
   updateDebounceText(e.target.value)
+
 })
 
 function debounce(cb, delay = 300) {
