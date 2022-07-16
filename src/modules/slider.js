@@ -1,7 +1,18 @@
-const slider = () => {
-  const sliderBlock = document.querySelector(".portfolio-content");
-  const slides = document.querySelectorAll(".portfolio-item");
-  const dots = document.querySelectorAll(".dot");
+const slider = (classSlider,classSlides, classDots) => {
+
+  if (!document.querySelector(classSlider)) {
+    return
+  } else if(!document.querySelectorAll(classSlides)) {
+    return
+  } else if (!document.querySelectorAll(classDots)) {
+    return
+  }
+  
+  const sliderBlock = document.querySelector(classSlider);
+  const slides = document.querySelectorAll(classSlides);
+  const dots = document.querySelectorAll(classDots);
+
+
   const timeInterval = 2000
 
   let currentSlide = 0;
