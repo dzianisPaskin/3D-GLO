@@ -4,6 +4,8 @@ import menu from './modules/menu'
 import scroll from './modules/scroll'
 import validation from './modules/validation'
 import tabs from './modules/tabs'
+import dots from './modules/dots'
+import slider from './modules/slider'
 
 
 timer("15 july 2022")
@@ -12,3 +14,5 @@ modal()
 scroll()
 validation()
 tabs()
+dots()
+slider()
