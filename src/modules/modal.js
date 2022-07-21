@@ -1,22 +1,29 @@
+import {animate} from './helpers'
+
 const modal = () => {
   const modal = document.querySelector(".popup");
   const modalForm = modal.querySelector(".popup-content");
   const buttons = document.querySelectorAll(".popup-btn");
-  let count = -26;
+
+
+  
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       if (document.documentElement.clientWidth > 768) {
-        modalForm.style.left = count + "%";
         modal.style.display = "block";
-        const animateModal = setInterval(function () {
-          count++;
-          modalForm.style.left = count + "%";
-          if (count >= 38) {
-            clearInterval(animateModal);
-            count = 0;
+
+        animate({
+          duration: 1000,
+          timing(timeFraction) {
+            return timeFraction;
+          },
+          draw(progress) {
+            
+            modalForm.style.opacity = progress
+            modalForm.style.left = (40 * progress) + "%"
           }
-        }, 4);
+        });
       } else {
         modal.style.display = "block";
       }
