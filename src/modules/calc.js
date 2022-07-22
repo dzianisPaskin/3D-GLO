@@ -35,44 +35,36 @@ const calc = (price = 100) => {
 
     
     
-    if (
-      calcType.value != "" &&
-      calcSquare.value != "" &&
-      calcCount.value != "" &&
-      calcDay.value != ""
-    ) {
-      let timeInterval = 1000 * 2 / totalValue
-      let i = 0;
-      const intervalTotal = setInterval(() => {
-        if (i <= totalValue) {
-          total.textContent = i;
-          i++;
-        } else if (i > totalValue) {
-            clearInterval(intervalTotal);
-            total.textContent = totalValue;
-        }
-      }, timeInterval);
-    }
+    // if (
+    //   calcType.value != "" &&
+    //   calcSquare.value != "" &&
+    //   calcCount.value != "" &&
+    //   calcDay.value != ""
+    // ) {
+    //   let timeInterval = 1000 * 2 / totalValue
+    //   let i = 0;
+    //   const intervalTotal = setInterval(() => {
+    //     if (i <= totalValue) {
+    //       total.textContent = i;
+    //       i++;
+    //     } else if (i > totalValue) {
+    //         clearInterval(intervalTotal);
+    //         total.textContent = totalValue;
+    //     }
+    //   }, timeInterval);
+    // }
 
+    animate({
+      duration: 1500,
+      timing(timeFraction) {
+        return timeFraction;
+      },
+      draw(progress) {
+        total.textContent = Math.trunc(totalValue * progress)
+        total.style.opacity = progress
 
-    // setInterval(() => {
-    //   for(let i = 0; i <= totalValue; i++) {
-
-    //     total.textContent = totalValue
-    //   }
-
-    // }, 1000)
-
-    // animate({
-    //   duration: 1500,
-    //   timing(timeFraction) {
-    //     return timeFraction;
-    //   },
-    //   draw(progress) {
-    //     total.style.opacity = progress
-
-    //   }
-    // });
+      }
+    });
   };
 
   calcBlock.addEventListener("input", (e) => {
