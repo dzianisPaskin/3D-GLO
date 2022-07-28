@@ -1,4 +1,6 @@
 const validation = () => {
+
+
   const form1 = document.querySelector("#form1");
   const mainName = form1.querySelector("#form1-name");
   const mainEmail = form1.querySelector("#form1-email");
@@ -14,16 +16,21 @@ const validation = () => {
   const formEmail = form3.querySelector("#form3-email");
   const formPhone = form3.querySelector("#form3-phone");
 
+  const formMessage = form2.querySelector('#form2-message')
+
+
   
 
   mainName.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^а-я\s\-]/i, "");
+    e.target.value = e.target.value.replace(/[^а-я\s]/i, "");
   });
   mainEmail.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/[^\w\@\-\_\.\!\~\*\']/, "");
   });
   mainPhone.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^\d\(\)]/i, "");
+    // e.target.value = e.target.value.replace(/[^\d\(\)]/i, "");
+    e.target.value = e.target.value.replace(/[^()\-0-9+]/, "");
+
   });
   topName.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/[^а-я\s\-]/i, "");
@@ -42,6 +49,9 @@ const validation = () => {
   });
   formPhone.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/[^\d\(\)]/i, "");
+  });
+  formMessage.addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/[^а-я.,\/?!\;:<>\s-`"'()]/gi, "");
   });
 };
 
