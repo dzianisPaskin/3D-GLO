@@ -39,7 +39,7 @@ const validation = () => {
     e.target.value = e.target.value.replace(/[^\w\@\-\_\.\!\~\*\']/, "");
   });
   topPhone.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^\d\(\)]/i, "");
+    e.target.value = e.target.value.replace(/[^()\-0-9+]/i, "");
   });
   formName.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/[^а-я\s\-]/i, "");
@@ -48,7 +48,7 @@ const validation = () => {
     e.target.value = e.target.value.replace(/[^\w\@\-\_\.\!\~\*\']/, "");
   });
   formPhone.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^\d\(\)]/i, "");
+    e.target.value = e.target.value.replace(/[^()\-0-9+]/i, "");
   });
   formMessage.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/[^а-я.,\/?!\;:<>\s-`"'()]/gi, "");
