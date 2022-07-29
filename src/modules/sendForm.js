@@ -9,6 +9,9 @@ const sendForm = ({ formId_1, formId_2, formId_3, someElem = [] }) => {
   const errorText = "Error";
   const successText = "Спасибо! наш менеджер с вами свяжется";
 
+  const spinner = document.createElement('div')
+  spinner.classList.add('spinner')
+
   const validate = (list) => {
     let success = true;
 
@@ -29,10 +32,11 @@ const sendForm = ({ formId_1, formId_2, formId_3, someElem = [] }) => {
     const formElements = form.querySelectorAll("input");
     const formData = new FormData(form);
     const formBody = {};
-
+  
     statusBlock.textContent = loadText;
     
     form.append(statusBlock);
+    form.append(spinner);
 
     formData.forEach((val, key) => {
       formBody[key] = val;
@@ -54,7 +58,7 @@ const sendForm = ({ formId_1, formId_2, formId_3, someElem = [] }) => {
       sendData(formBody)
         .then((data) => {
           statusBlock.textContent = successText;
-
+          spinner.remove()
           formElements.forEach((input) => {
             input.value = "";
           });
